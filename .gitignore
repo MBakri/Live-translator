@@ -117,3 +117,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+# mp3 and WAV
+.mp3
+.wav
