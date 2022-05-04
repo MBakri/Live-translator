@@ -1,7 +1,5 @@
 import express from "express";
 import dotenv from "dotenv";
-//const logger = require("./logger/logger");
-//const httpLogger = require("./logger/httpLogger");
 import cors from "cors";
 import audioprocessorrouter from "./routes/audioprocessor";
 //const swaggerUi = require('swagger-ui-express');

@@ -1,6 +1,5 @@
 import express from "express";
 import multer from "multer";
-import path from "path";
 import * as controller from "../controllers/audioprocessor";
 var router = express.Router();
 
@@ -13,7 +12,7 @@ const videoStorage = multer.diskStorage({
 const videoUpload = multer({
 	storage: videoStorage,
 	limits: {
-		fileSize: 10000000, // 10000000 Bytes = 10 MB
+		fileSize: 100000000, // 10000000 Bytes = 10 MB
 	},
 	fileFilter(req, file, cb) {
 		// upload only mp4 and mkv format
