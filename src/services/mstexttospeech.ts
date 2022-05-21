@@ -5,9 +5,7 @@ dotenv.config();
 const key: any = process.env.MSTTSSubscriptionKey;
 const region: any = process.env.MSTTSRegion;
 var audioFile = "YourAudioFile.wav";
-const samplearabictext: string =
-    "عندما يريد العالم أن يتكلّم ، فهو يتحدّث بلغة يونيكود. تسجّل الآن لحضور المؤتمر الدولي العاشر ليونيكود، الذي سيعقد في 10-12 آذار 1997 بمدينة مَايِنْتْس، ألمانيا. و سيجمع المؤتمر بين خبراء من كافة قطاعات الصناعة على الشبكة العالمية انترنيت ويونيكود، حيث ستتم، على الصعيدين الدولي والمحلي على حد سواء مناقشة سبل استخدام يونكود في النظم القائمة وفيما يخص التطبيقات الحاسوبية، الخطوط، تصميم النصوص والحوسبة متعددة اللغات.";
-
+const samplearabictext: string = "مرحبا ، أنا ليز ويد تجلب لك أضواء كاشفة كلمة اليوم. كلمة اليوم بسيطة. هذه الكلمة تأتي من برنامج تدمير الجدري. عينة الكلمة هي اسم. هذا يعني جزءا صغيرا أو مقدارا من شيء يمكنك دراسته لمعرفة المزيد عن الشيء. تم أخذها منزل.فيما يلي عينة في جملة من هذا البرنامج. يمكن لأحد العلماء غير الشرفاء سرقة عينة صغيرة من المرض.في التعليقات أدناه ، حاول استخدام نموذج الكلمة في جملتك الخاصة وانضم إلينا في المرة القادمة للحصول على كلمة أخرى من اليوم "
 export const texttospeech = async function (text: string) {
     let speechConfig = sdk.SpeechConfig.fromSubscription(key, region);
     let audioConfig = sdk.AudioConfig.fromAudioFileOutput(audioFile);
@@ -18,8 +16,6 @@ export const texttospeech = async function (text: string) {
     try {
         return new Promise<any>(function (resolve: any, reject) {
             synthesizer.speakTextAsync(samplearabictext, function (res) {
-                //  let bufferstreamOut = new PassThrough();
-
                 if (res.reason === sdk.ResultReason.SynthesizingAudioCompleted) {
                     console.log("synthesis finished.");
                     synthesizer.close();

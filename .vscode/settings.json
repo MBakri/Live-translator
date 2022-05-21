@@ -4,5 +4,5 @@
     ".vscode{,/**}"
   ],
   "appService.defaultWebAppToDeploy": "/subscriptions/abdba669-440f-431c-a854-c9eee26e6a7d/resourceGroups/NLP_POC_01/providers/Microsoft.Web/sites/NLPPoc01",
-  "appService.deploySubpath": "."
+  "appService.deploySubpath": "build"
 }
