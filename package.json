@@ -57,7 +57,6 @@
   },
   "scripts": {
     "start": "npm run build && node build/index.js ",
-    "test": "jest",
     "start:dev": "nodemon src/index.ts",
     "build": "rimraf ./build && tsc"
   }
