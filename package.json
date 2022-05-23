@@ -56,8 +56,6 @@
     "winston-logsene": "^2.1.1"
   },
   "scripts": {
-    "start": "npm run build && node build/index.js ",
-    "start:dev": "nodemon src/index.ts",
-    "build": "rimraf ./build && tsc"
+    "start": "node build/index.js "
   }
 }
