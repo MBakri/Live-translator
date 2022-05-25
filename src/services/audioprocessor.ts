@@ -9,23 +9,23 @@ const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
 const ffmpeg = require("fluent-ffmpeg");
 ffmpeg.setFfmpegPath(ffmpegPath);
 export const create = async function (id: string, filename: string) {
-	var bodyFormData = new FormData();
-	var headers = {
-		"content-type": "multipart/form-data"
-	};
+	try {
+		await extractAudio({
+			input: path.resolve(`.\\videos\\${id}-${filename}`),//`C:/Users/User/Desktop/Project/Wafi/Live Translator/Live-Translator-web/Live-translator/videos/${id}-${filename}`, //`C:/Users/User/Desktop/Project/Wafi/Live Translator/Live-translator/videos/${id}-${filename}`,
+			output: `${id}.wav`,
+		});
+		//	const file = await fs.readFile(`${id}.wav`, async (err: any) => {
+		//	console.log(err);
+		//});
+		//bodyFormData.append("file", file);
+		//let resp = await axios.post("https://nlp-poc-translator.azurewebsites.net/uploader", bodyFormData, { headers: headers })
+		let data = await texttospeech.texttospeech('test', filename);
 
-
-	await extractAudio({
-		input: path.resolve(`.\\videos\\${id}-${filename}`),//`C:/Users/User/Desktop/Project/Wafi/Live Translator/Live-Translator-web/Live-translator/videos/${id}-${filename}`, //`C:/Users/User/Desktop/Project/Wafi/Live Translator/Live-translator/videos/${id}-${filename}`,
-		output: `${id}.wav`,
-	});
-	//	const file = await fs.readFile(`${id}.wav`, async (err: any) => {
-	//	console.log(err);
-	//});
-	//bodyFormData.append("file", file);
-	//let resp = await axios.post("https://nlp-poc-translator.azurewebsites.net/uploader", bodyFormData, { headers: headers })
-	let data = await texttospeech.texttospeech('test', filename);
-	return data;
+		return data;
+	}
+	catch (err) {
+		console.log(err);
+	}
 };
 
 

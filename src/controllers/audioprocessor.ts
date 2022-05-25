@@ -15,6 +15,6 @@ export const translate = async (req: Request, res: Response, next: any) => {
 		// We replaced all the event handlers with a simple call to readStream.pipe()
 		readStream.pipe(res);
 	} catch (e) {
-		next(e);
+		console.log(e);
 	}
 };
