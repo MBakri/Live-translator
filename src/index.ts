@@ -24,5 +24,6 @@ app.use(function (req, res, next) {
 try{
 app.use("/api/audioprocessor", audioprocessorrouter);
 }
-catch (e)
+catch (e){
 	console.log(e);
+}
