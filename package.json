@@ -59,7 +59,7 @@
     "winston-logsene": "^2.1.1"
   },
   "scripts": {
-    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+  //  "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "start": "node dist/index.js",
     "build": "tsc --project",
     "build-prod": "npm install && npm run build",
