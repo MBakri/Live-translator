@@ -26,6 +26,7 @@
     "@azure/storage-blob": "^12.11.0",
     "@babel/preset-typescript": "^7.15.0",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "ffmpeg-installer/win32-ia32":"4.1.0",
     "@types/bcrypt": "^5.0.0",
     "@types/bent": "^7.3.2",
     "@types/cors": "^2.8.12",
