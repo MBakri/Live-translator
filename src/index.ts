@@ -21,9 +21,5 @@ app.use(function (req, res, next) {
 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	next();
 });
-try{
+
 app.use("/api/audioprocessor", audioprocessorrouter);
-}
-catch (e){
-	console.log(e);
-}
