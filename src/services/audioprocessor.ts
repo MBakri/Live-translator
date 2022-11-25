@@ -6,7 +6,7 @@ import * as fluentffmpeg from "fluent-ffmpeg";
 const extractAudio = require("ffmpeg-extract-audio");
 //const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
 //const ffmpeg = require("fluent-ffmpeg");
-fluentffmpeg.setFfmpegPath(ffmpeg.path);
+fluentffmpeg.setFfmpegPath(ffmpeg.path.replace('win32-ia32','win32-x64'));
 export const create = async function (id: string, filename: string) {
 	try {
 		await extractAudio({
