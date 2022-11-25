@@ -1,13 +1,12 @@
 import path from "path";
 import * as texttospeech from "./mstexttospeech";
-import axios from "axios";
-import fs from 'fs';
-import FormData from "form-data";
+import * as ffmpeg from "@ffmpeg-installer/ffmpeg";
+import * as fluentffmpeg from "fluent-ffmpeg";
 
 const extractAudio = require("ffmpeg-extract-audio");
-const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
-const ffmpeg = require("fluent-ffmpeg");
-ffmpeg.setFfmpegPath(ffmpegPath);
+//const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
+//const ffmpeg = require("fluent-ffmpeg");
+fluentffmpeg.setFfmpegPath(ffmpeg.path);
 export const create = async function (id: string, filename: string) {
 	try {
 		await extractAudio({
