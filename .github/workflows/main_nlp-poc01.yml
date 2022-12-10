@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - NLP-POC-Backend
+name: Build and deploy Node.js app to Azure Web App - nlp-poc01
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -22,11 +22,8 @@ jobs:
           node-version: '14.x'
 
       - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
-      
+        run: npm run build-prod
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
@@ -47,10 +44,10 @@ jobs:
           name: node-app
 
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
         with:
-          app-name: 'NLP-POC-Backend'
+          app-name: 'nlp-poc01'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2A8FBC92A8FF4D798A7CA1DA39728607 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6FA2AB12716B4E20B1329AFA78005B4F }}
           package: .
