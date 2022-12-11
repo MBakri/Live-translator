@@ -5,13 +5,15 @@ import * as fluentffmpeg from "fluent-ffmpeg";
 
 const extractAudio = require("ffmpeg-extract-audio");
 const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
-const ffmpeg = require("fluent-ffmpeg");
-ffmpegPath.replace('win32-ia32','win32-x64');
-ffmpeg.setFfmpegPath(ffmpegPath);
+var ffmpeg = require("fluent-ffmpeg");
+ffmpeg.setFfmpegPath('C:\home\site\wwwroot\node_modules\@ffmpeg-installer\win32-x64\ffmpeg.exe');
 export const create = async function (id: string, filename: string) {
 	//if(ffmpegPath)
-	//	console.log(ffmpegPath + ' ffmpegPath' + ' ffmpeg ' + ffmpeg);
+	//ffmpegPath.replace('win32-ia32','win32-x64');
 	
+	
+
+		console.log(ffmpegPath + ' ffmpegPath');
 	try {
 		await extractAudio({
 			input: path.resolve(`.\\videos\\${id}-${filename}`),//`C:/Users/User/Desktop/Project/Wafi/Live Translator/Live-Translator-web/Live-translator/videos/${id}-${filename}`, //`C:/Users/User/Desktop/Project/Wafi/Live Translator/Live-translator/videos/${id}-${filename}`,
