@@ -1,19 +1,11 @@
 import path from "path";
 import * as texttospeech from "./mstexttospeech";
-//import * as ffmpeg from "@ffmpeg-installer/ffmpeg";
-import * as fluentffmpeg from "fluent-ffmpeg";
 
 const extractAudio = require("ffmpeg-extract-audio");
 const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
-var ffmpeg = require("fluent-ffmpeg");
-ffmpeg.setFfmpegPath('C:\home\site\wwwroot\node_modules\@ffmpeg-installer\win32-x64\ffmpeg.exe');
+const ffmpeg = require("fluent-ffmpeg");
+ffmpeg.setFfmpegPath(ffmpegPath);
 export const create = async function (id: string, filename: string) {
-	//if(ffmpegPath)
-	//ffmpegPath.replace('win32-ia32','win32-x64');
-	
-	
-
-		console.log(ffmpegPath + ' ffmpegPath');
 	try {
 		await extractAudio({
 			input: path.resolve(`.\\videos\\${id}-${filename}`),//`C:/Users/User/Desktop/Project/Wafi/Live Translator/Live-Translator-web/Live-translator/videos/${id}-${filename}`, //`C:/Users/User/Desktop/Project/Wafi/Live Translator/Live-translator/videos/${id}-${filename}`,
