@@ -1,10 +1,11 @@
 import path from "path";
 import * as texttospeech from "./mstexttospeech";
 
-const extractAudio = require("ffmpeg-extract-audio");
-const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
+const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path.replace('win32-ia32', 'win32-x64');
 const ffmpeg = require("fluent-ffmpeg");
-ffmpeg.setFfmpegPath(path.resolve('./node_modules/@ffmpeg-installer/win32-x64/ffmpeg.exe'));
+const extractAudio = require("ffmpeg-extract-audio");
+
+//ffmpeg.setFfmpegPath(path.resolve('./node_modules/@ffmpeg-installer/win32-x64/ffmpeg.exe'));
 export const create = async function (id: string, filename: string) {
 	try {
 		await extractAudio({
