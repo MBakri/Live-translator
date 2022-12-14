@@ -4,7 +4,7 @@ import * as texttospeech from "./mstexttospeech";
 const extractAudio = require("ffmpeg-extract-audio");
 const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
 const ffmpeg = require("fluent-ffmpeg");
-ffmpeg.setFfmpegPath(ffmpegPath);
+ffmpeg.setFfmpegPath(path.resolve('./node_modules/@ffmpeg-installer/win32-x64/ffmpeg.exe'));
 export const create = async function (id: string, filename: string) {
 	try {
 		await extractAudio({
